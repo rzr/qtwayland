@@ -22,6 +22,7 @@
 
 # This file is based on qtwayland.spec from Mer project
 # http://merproject.org
+%bcond_with wayland
 
 Name:       qt5-qtwayland
 Summary:    Qt Wayland compositor
@@ -31,6 +32,7 @@ Group:      Base/Libraries
 License:    LGPL-2.1+ or GPL-3.0
 URL:        http://qt.digia.com
 Source0:    %{name}-%{version}.tar.bz2
+%if %{with wayland}
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Widgets)
@@ -40,19 +42,21 @@ BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(wayland-client)
+BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-egl)
+BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  libffi-devel
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig(xkbcommon)
-
+%endif
 %description
 Qt is a cross-platform application and UI framework. Using Qt, you can
 write web-enabled applications once and deploy them across desktop,
 mobile and embedded systems without rewriting the source code.
 .
 This package contains the Qt wayland compositor for wayland_egl
-
+%if %{with wayland}
 %package devel
 Summary:        Qt Wayland compositor - development files
 Group:          Base/Libraries
@@ -114,5 +118,5 @@ rm -rf %{buildroot}
 #%{_datadir}/qt5/mkspecs/modules/qt_lib_compositor_private.pri
 %{_libdir}/qt5/bin/qtwaylandscanner
 %{_libdir}/cmake
-
+%endif
 #### No changelog section, separate $pkg.changes contains the history
