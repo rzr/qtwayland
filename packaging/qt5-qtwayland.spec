@@ -45,6 +45,7 @@ BuildRequires:  pkgconfig(glib-2.0)
 BuildRequires:  libffi-devel
 BuildRequires:  fdupes
 BuildRequires:  pkgconfig(xkbcommon)
+BuildRequires:  pkgconfig(mtdev)
 %endif
 %description
 Qt is a cross-platform application and UI framework. Using Qt, you can
