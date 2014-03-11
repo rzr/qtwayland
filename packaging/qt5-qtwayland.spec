@@ -27,7 +27,7 @@
 
 Name:       qt5-qtwayland
 Summary:    Qt Wayland compositor
-Version:    5.2.2
+Version:    5.2.90+alpha
 Release:    0
 Group:      Base/Libraries
 License:    LGPL-2.1+ or GPL-3.0
