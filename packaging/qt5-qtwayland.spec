@@ -34,6 +34,7 @@ License:    LGPL-2.1+ or GPL-3.0
 URL:        http://qt.digia.com
 Source0:    %{name}-%{version}.tar.bz2
 %if %{with wayland}
+Source1001: %{name}.manifest
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5OpenGL)
@@ -75,6 +76,7 @@ This package contains the Qt wayland compositor development files for wayland_eg
 
 %prep
 %setup -q -n %{name}-%{version}/qtwayland
+cp %{SOURCE1001} .
 
 %build
 export QTDIR=/usr/share/qt5
@@ -103,6 +105,7 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_libdir}/libQt5WaylandClient.so.5*
 %{_libdir}/qt5/plugins/platforms/libqwayland-generic.so
 %{_libdir}/qt5/plugins/platforms/libqwayland-egl.so
@@ -112,6 +115,7 @@ rm -rf %{buildroot}
 
 %files devel
 %defattr(-,root,root,-)
+%manifest %{name}.manifest
 %{_libdir}/libQt5WaylandClient.so
 %{_includedir}/qt5/*
 %{_libdir}/libQt5WaylandClient.la
