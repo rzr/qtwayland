@@ -109,8 +109,8 @@ rm -rf %{buildroot}
 %{_libdir}/libQt5WaylandClient.so.5*
 %{_libdir}/qt5/plugins/platforms/libqwayland-generic.so
 %{_libdir}/qt5/plugins/platforms/libqwayland-egl.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration/client/libwayland-egl.so
-%{_libdir}/qt5/plugins/wayland-graphics-integration/client/libdrm-egl-server.so
+%{_libdir}/qt5/plugins/wayland-graphics-integration-client/libwayland-egl.so
+%{_libdir}/qt5/plugins/wayland-graphics-integration-client/libdrm-egl-server.so
 
 
 %files devel
