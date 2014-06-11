@@ -118,7 +118,7 @@ public:
 
     static InputDevice *fromSeatResource(struct ::wl_resource *resource)
     {
-        return static_cast<InputDevice *>(wl_seat::Resource::fromResource(resource)->seat);
+        return static_cast<InputDevice *>(wl_seat::Resource::fromResource(resource)->seat_object);
     }
 
 private:
