@@ -97,6 +97,11 @@ rm -rf %{buildroot}
 
 %post
 /sbin/ldconfig
+
+f="/etc/profile.d/qt.sh"
+grep QT_WAYLAND_USE_XDG_SHELL $f \
+    || echo "QT_WAYLAND_USE_XDG_SHELL='defined'; export QT_WAYLAND_USE_XDG_SHELL"  >> $f
+
 %postun
 /sbin/ldconfig
 
