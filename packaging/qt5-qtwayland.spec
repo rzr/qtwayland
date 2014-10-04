@@ -75,10 +75,10 @@ This package contains the Qt wayland compositor development files for wayland_eg
 #### Build section
 
 %prep
-%setup -q -n %{name}-%{version}/qtwayland
-cp %{SOURCE1001} .
+%setup -q -n %{name}-%{version}
 
 %build
+cp %{SOURCE1001} .
 export QTDIR=/usr/share/qt5
 export QT_WAYLAND_GL_CONFIG=wayland_egl
 touch .git
