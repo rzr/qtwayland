@@ -27,7 +27,7 @@
 
 Name:       qt5-qtwayland
 Summary:    Qt Wayland compositor
-Version:    5.3.1
+Version:    5.3.99+beta1
 Release:    0
 Group:      Base/Libraries
 License:    LGPL-2.1+ or GPL-3.0
@@ -116,6 +116,7 @@ grep QT_WAYLAND_USE_XDG_SHELL $f \
 %{_libdir}/qt5/plugins/platforms/libqwayland-egl.so
 %{_libdir}/qt5/plugins/wayland-graphics-integration-client/libwayland-egl.so
 %{_libdir}/qt5/plugins/wayland-graphics-integration-client/libdrm-egl-server.so
+%{_libdir}/qt5/plugins/wayland-decoration-client/libbradient.so
 
 
 %files devel
