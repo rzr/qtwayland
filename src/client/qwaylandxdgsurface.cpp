@@ -132,8 +132,12 @@ void QWaylandXdgSurface::updateTransientParent(QWindow *parent)
     QWaylandWindow *parent_wayland_window = static_cast<QWaylandWindow *>(parent->handle());
     if (!parent_wayland_window)
         return;
-
-    set_parent(parent_wayland_window->object());
+    ::xdg_surface *surface = 0;
+    QtWayland::xdg_shell *shell = parent_wayland_window->display()->shellXdg();
+    if (shell) {
+        surface = shell->get_xdg_surface(parent_wayland_window->object());
+        set_parent(surface);
+    }
 }
 
 void QWaylandXdgSurface::setTitle(const QString & title)
@@ -188,7 +192,7 @@ void QWaylandXdgSurface::xdg_surface_configure(int32_t width, int32_t height, st
     {
         switch (*(state+i)) {
         case XDG_SURFACE_STATE_MAXIMIZED:
-            aboutToMaximize = true;
+            aboutToMaximize = ((width>0) && (height>0));
             break;
         case XDG_SURFACE_STATE_FULLSCREEN:
             aboutToFullScreen = true;
